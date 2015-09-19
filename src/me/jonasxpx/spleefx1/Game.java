@@ -28,7 +28,8 @@ public class Game implements Serializable{
 		if(!players.contains(player)){
 			SpleefX1.pluginManager.callEvent(new PlayerJoinGameEvent(player, this));
 			players.add(player.getName());
-		}
+		}else
+			throw new IllegalArgumentException("O jogador já esta no evento");
 	}
 	
 	public void removePlayer(Player player){
