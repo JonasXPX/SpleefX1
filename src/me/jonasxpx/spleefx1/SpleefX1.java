@@ -11,9 +11,11 @@ public class SpleefX1 extends JavaPlugin{
 
 	private static WorldGuardPlugin wg = null;
 	public static PluginManager pluginManager;
+	private static SpleefX1 instance;
 	
 	@Override
 	public void onEnable() {
+		SpleefX1.instance = this;
 		wg = getWorldGuardPlugin();
 		pluginManager = getServer().getPluginManager();
 		if(wg == null){
@@ -21,6 +23,8 @@ public class SpleefX1 extends JavaPlugin{
 			getServer().getPluginManager().disablePlugin(this);
 		}
 	}
+	
+	public static SpleefX1 getInstance(){return instance;}
 	
 	private WorldGuardPlugin getWorldGuardPlugin(){
 		if(getServer().getPluginManager().getPlugin("WorldGuard") != null)
